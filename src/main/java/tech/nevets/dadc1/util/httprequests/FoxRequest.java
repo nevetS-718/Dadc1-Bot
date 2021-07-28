@@ -1,4 +1,4 @@
-package tech.nevets.dadc1.util;
+package tech.nevets.dadc1.util.httprequests;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,7 +10,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class CatRequest {
+public class FoxRequest {
     public static String url;
 
     public static void getHttpConnection() throws IOException, InterruptedException {
@@ -18,21 +18,21 @@ public class CatRequest {
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
                 .header("accept", "application/json")
-                .header("api_key", Config.getConfig().getString("command.api.cat.key"))
-                .uri(URI.create(Config.getConfig().getString("command.api.cat.url")))
+                .uri(URI.create(Config.getConfig().getString("command.api.fox.url")))
                 .build();
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-                .thenApply(CatRequest::parse)
+                .thenApply(FoxRequest::parse)
                 .join();
     }
 
     public static String parse(String response) {
-        JSONArray ja = new JSONArray(response);
+        String mod = "[ " + response + " ]";
+        JSONArray ja = new JSONArray(mod);
 
         for (int i = 0; i < ja.length(); i++) {
             JSONObject jo = ja.getJSONObject(i);
-            url = jo.getString("url");
+            url = jo.getString("image");
         }
 
         return null;

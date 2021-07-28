@@ -34,6 +34,14 @@ public class Config {
         ymlFile.addDefault("command.api.dog.url", "https://api.thedogapi.com/v1/images/search");
         ymlFile.addDefault("command.api.dog.key", "00000000-0000-0000-0000-000000000000");
         ymlFile.addDefault("command.api.fox.url", "https://randomfox.ca/floof/");
+        ymlFile.addDefault("command.api.panda.url", "https://some-random-api.ml/img/panda");
+        ymlFile.addDefault("command.api.redpanda.url", "https://some-random-api.ml/img/red_panda");
+        ymlFile.addDefault("command.api.bird.url", "https://some-random-api.ml/img/birb");
+        ymlFile.addDefault("command.api.pig.url", "https://pigs.p.rapidapi.com/random");
+        ymlFile.addDefault("command.api.pig.host", "");
+        ymlFile.addDefault("command.api.pig.key", "00000000000000000000000000000000000000000000000000");
+        ymlFile.addDefault("command.api.imgur.client-id", "000000000000000");
+        ymlFile.addDefault("command.api.imgur.secret", "0000000000000000000000000000000000000000");
         ymlFile.addDefault("verbose", false);
 
 

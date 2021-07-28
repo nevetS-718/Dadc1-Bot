@@ -1,10 +1,9 @@
 package tech.nevets.dadc1.commands.games;
 
-import net.dv8tion.jda.api.entities.TextChannel;
 import tech.nevets.dadc1.Config;
 import tech.nevets.dadc1.commands.CommandContext;
 import tech.nevets.dadc1.commands.ICommand;
-import tech.nevets.dadc1.util.JokeRequest;
+import tech.nevets.dadc1.util.httprequests.JokeRequest;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,17 +12,10 @@ public class DadJokeCmd implements ICommand {
 
     @Override
     public void handle(CommandContext ctx) {
-        try { JokeRequest.getHttpConnection(); } catch (IOException e) { e.printStackTrace(); } catch (InterruptedException e) { e.printStackTrace(); }
-        List<String> args = ctx.getArgs();
-        TextChannel channel = ctx.getChannel();
+        try { JokeRequest.getHttpConnection(); } catch (IOException | InterruptedException e) { e.printStackTrace(); }
 
-        if (args.isEmpty()) {
-            JokeRequest jokeRequest = new JokeRequest();
-            String joke = jokeRequest.joke;
-
-            channel.sendTyping().queue();
-            channel.sendMessage(joke).queue();
-        }
+        ctx.getChannel().sendTyping().queue();
+            ctx.getChannel().sendMessage(JokeRequest.joke).queue();
     }
 
     @Override

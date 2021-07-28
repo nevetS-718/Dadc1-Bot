@@ -1,4 +1,4 @@
-package tech.nevets.dadc1.util;
+package tech.nevets.dadc1.util.httprequests;
 
 import tech.nevets.dadc1.Config;
 
@@ -17,7 +17,7 @@ public class JokeRequest {
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
                 .header("accept", "text/plain")
-                .uri(URI.create(Config.getConfig().getString("command.dadjoke.api")))
+                .uri(URI.create(Config.getConfig().getString("command.api.dadjoke")))
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 

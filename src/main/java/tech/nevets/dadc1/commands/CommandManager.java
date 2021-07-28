@@ -4,12 +4,12 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import tech.nevets.dadc1.Config;
 import tech.nevets.dadc1.commands.administrator.ReloadConfigCmd;
 import tech.nevets.dadc1.commands.games.*;
+import tech.nevets.dadc1.commands.games.animals.*;
 import tech.nevets.dadc1.commands.strings.GoodMorningCmd;
 import tech.nevets.dadc1.commands.strings.LCmd;
 import tech.nevets.dadc1.commands.strings.LanguageCmd;
 import tech.nevets.dadc1.commands.strings.WelcomeBackCmd;
 import tech.nevets.dadc1.commands.wiki.HelpCmd;
-import tech.nevets.dadc1.util.FoxRequest;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -27,11 +27,15 @@ public class CommandManager {
         //Game commands
         addCommand(new PingCmd());
         addCommand(new DadJokeCmd());
+        addCommand(new DiceCmd());
+        addCommand(new CoinFlipCmd());
+        //Animal Commands
         addCommand(new CatCmd());
         addCommand(new DogCmd());
         addCommand(new FoxCmd());
-        addCommand(new DiceCmd());
-        addCommand(new CoinFlipCmd());
+        addCommand(new PandaCmd());
+
+        addCommand(new PigCmd());
         //Commands that return simple strings
         addCommand(new LanguageCmd());
         addCommand(new GoodMorningCmd());

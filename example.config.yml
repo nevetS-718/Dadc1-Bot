@@ -7,8 +7,14 @@ permission:
   staff-role-id: '000000000000000000'
   owner-id: '000000000000000000'
 command:
-  dadjoke:
-    api: https://icanhazdadjoke.com/
-    connection-timeout: '5000'
-    read-timeout: '5000'
+  api:
+    dadjoke: https://icanhazdadjoke.com/
+    cat:
+      url: https://api.thecatapi.com/v1/images/search
+      key: 00000000-0000-0000-0000-000000000000
+    dog:
+      url: https://api.thedogapi.com/v1/images/search
+      key: 00000000-0000-0000-0000-000000000000
+    fox:
+      url: https://randomfox.ca/floof/
 verbose: false

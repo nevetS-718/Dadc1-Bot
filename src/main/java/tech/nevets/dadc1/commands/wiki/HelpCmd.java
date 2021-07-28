@@ -1,6 +1,8 @@
 package tech.nevets.dadc1.commands.wiki;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
+import tech.nevets.dadc1.Bot;
 import tech.nevets.dadc1.Config;
 import tech.nevets.dadc1.commands.CommandContext;
 import tech.nevets.dadc1.commands.CommandManager;
@@ -23,15 +25,18 @@ public class HelpCmd implements ICommand {
 
         if (args.isEmpty()) {
             StringBuilder builder = new StringBuilder();
-            String prefix = Config.getConfig().getString("bot.prefix");
 
-            builder.append("List of commands\n");
+            EmbedBuilder eb = new EmbedBuilder();
+
+            eb.setTitle("List of Commands");
 
             manager.getCommands().stream().map(ICommand::getName).forEach(
-                    (it) -> builder.append('`').append(prefix).append(it).append("`\n")
+                    (it) -> builder.append('`').append(Bot.prefix).append(it).append("`\n")
             );
 
-            channel.sendMessage(builder.toString()).queue();
+            eb.addField("", builder.toString(), false);
+            channel.sendMessageEmbeds(eb.build()).queue();
+
             return;
         }
 
@@ -53,9 +58,8 @@ public class HelpCmd implements ICommand {
 
     @Override
     public String getHelp() {
-        String prefix = Config.getConfig().getString("bot.prefix");
         return "Shows the list of bot commands\n" +
-                "Usage: `" + prefix + "help [command]`";
+                "Usage: `" + Bot.prefix + "help [command]`";
     }
 
     @Override

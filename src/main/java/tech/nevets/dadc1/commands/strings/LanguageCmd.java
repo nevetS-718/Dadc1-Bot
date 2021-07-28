@@ -1,4 +1,4 @@
-package tech.nevets.dadc1.commands.games;
+package tech.nevets.dadc1.commands.strings;
 
 import net.dv8tion.jda.api.entities.TextChannel;
 import tech.nevets.dadc1.Config;
@@ -16,8 +16,6 @@ public class LanguageCmd implements ICommand {
         if (args.isEmpty()) {
             channel.sendTyping().queue();
             channel.sendMessage("Watch your **fucking** language!").queue();
-
-            return;
         }
     }
 
