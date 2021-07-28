@@ -23,8 +23,6 @@ public class DadJokeCmd implements ICommand {
 
             channel.sendTyping().queue();
             channel.sendMessage(joke).queue();
-
-            return;
         }
     }
 

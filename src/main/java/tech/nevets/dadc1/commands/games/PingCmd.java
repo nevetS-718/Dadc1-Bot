@@ -1,6 +1,7 @@
 package tech.nevets.dadc1.commands.games;
 
 import net.dv8tion.jda.api.JDA;
+import tech.nevets.dadc1.Config;
 import tech.nevets.dadc1.commands.CommandContext;
 import tech.nevets.dadc1.commands.ICommand;
 
@@ -15,7 +16,9 @@ public class PingCmd implements ICommand {
 
     @Override
     public String getHelp() {
-        return "Shows the current ping from the bot to the Discord servers";
+        String prefix = Config.getConfig().getString("bot.prefix");
+        return "Shows the current ping from the bot to the Discord servers" +
+                "Usage: `" + prefix + "ping`";
     }
 
     @Override

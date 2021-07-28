@@ -28,7 +28,12 @@ public class Config {
         ymlFile.addDefault("bot.action", "with myself");
         ymlFile.addDefault("permission.staff-role-id", "000000000000000000");
         ymlFile.addDefault("permission.owner-id", "000000000000000000");
-        ymlFile.addDefault("command.dadjoke.api", "https://icanhazdadjoke.com/");
+        ymlFile.addDefault("command.api.dadjoke", "https://icanhazdadjoke.com/");
+        ymlFile.addDefault("command.api.cat.url", "https://api.thecatapi.com/v1/images/search");
+        ymlFile.addDefault("command.api.cat.key", "00000000-0000-0000-0000-000000000000");
+        ymlFile.addDefault("command.api.dog.url", "https://api.thedogapi.com/v1/images/search");
+        ymlFile.addDefault("command.api.dog.key", "00000000-0000-0000-0000-000000000000");
+        ymlFile.addDefault("command.api.fox.url", "https://randomfox.ca/floof/");
         ymlFile.addDefault("verbose", false);
 
 
